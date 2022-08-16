@@ -9,6 +9,8 @@ services:
       - "8000:8000"
     volumes:
       - ./src:/usr/src/app/
-    command: sh -c "cd InvMngSys && python manage.py collectstatic --no-input &&
+    command: sh -c "cd InvMngSys &&
+                    python manage.py collectstatic --no-input &&
                     python manage.py migrate &&
+                    python manage.py loaddata users &&
                     python manage.py runserver 0.0.0.0:8000"

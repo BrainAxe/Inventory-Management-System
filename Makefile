@@ -19,7 +19,10 @@ makemigrations:
 migrate:
 	docker exec -it inventory-web python manage.py migrate
 
+test:
+	docker exec -it inventory-web python manage.py test
+
 createsuperuser:
 	docker exec -it inventory-web python manage.py createsuperuser
 
-.PHONEY: build up down start stop makemigrations migrate createsuperuser
+.PHONEY: build up down start stop makemigrations migrate test createsuperuser

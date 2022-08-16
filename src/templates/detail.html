@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+
+{% block head_title %} Inventory Detail {% endblock head_title %} 
+
+
+
+{% block content %}
+
+
+<div class="container pt-5">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+
+                <div class="details col-md-6 pt-2 pl-4">
+                    <img src="https://www.helium10.com/app/uploads/2020/09/InventoryManagement_Hero@3x.png" alt="" width="300" height="300">
+                </div>
+                <div class="details col-md-6 pt-2">
+                    <h3 class="inventory-name">{{ instance.name }}</h3>
+                    <div class="inventory-availability">Availability: {{ instance.availability }}</div>
+                    <div class="inventory-supplier">Supplier: {{ instance.supplier }}</div>
+                    <p class="inventory-description">{{ instance.description }}</p>
+                    <p class="inventory-note">note: {{ instance.note }}</p>
+                    <h4 class="stock">current stock: <span>{{ instance.stock }}</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

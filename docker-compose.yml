@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  inventory_web:
+    build: .
+    image: inventory-web
+    container_name: inventory-web
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/usr/src/app/
+    command: sh -c "cd InvMngSys && python manage.py collectstatic --no-input &&
+                    python manage.py migrate &&
+                    python manage.py runserver 0.0.0.0:8000"

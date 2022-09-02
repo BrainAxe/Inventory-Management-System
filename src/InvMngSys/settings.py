@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+from InvMngSys.logging_formatters import CustomJsonFormatter
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -155,9 +157,8 @@ LOGGING = {
     #     }
     # },
     'formatters': {
-        'verbose': {
-            'format': '%(asctime)s | %(levelname)s | %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S',
+        'main_formatter': {
+            '()': CustomJsonFormatter,
         },
     },
     'handlers': {
@@ -165,7 +166,7 @@ LOGGING = {
            'level': 'WARNING',
            'class': 'logging.FileHandler',
            'filename': 'InvMngSys.log',
-           'formatter': 'verbose',
+           'formatter': 'main_formatter',
        },
     },
     'loggers': {
